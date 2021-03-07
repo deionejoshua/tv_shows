@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit Show {{current_show.id}}</h1>
+    <form action="/shows/{{current_show.id}}/update" method="post">
+        {%csrf_token%}
+    <p>
+        Title:
+        <input type="text" name="show_title" id="">
+    </p>
+
+    <br>
+    <p>
+        Network:
+        <input type="text" name="show_network" id="">
+    </p>
+
+    <br>
+    <p>
+        Show Release Date:
+        <input type="date" name="show_release_date" id="">
+    </p>
+
+    <br>
+    <p>
+        Show Description:
+        <textarea id="show_description" name="show_description" rows="10" cols="50"></textarea>
+    </p>
+
+    <br>
+
+    <button type="submit">Update</button>
+
+    </form>
+
+    <br> 
+    <br>
+
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+
+    <br>
+    <a href="/shows/{{current_show.id}}">Go to Show Details</a>
+</body>
+</html>
